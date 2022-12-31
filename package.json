@@ -11,7 +11,9 @@
     "start": "node dist/index.js",
     "release": "standard-version",
     "test:local": "jest --setupFiles dotenv/config --ci -i --forceExit",
-    "test:ci": "jest --ci -i"
+    "test:ci": "jest --ci -i",
+    "demo": "npm run prepare:demo && ts-node demo",
+    "prepare:demo": "if [ ! -d \"media\" ]; then mkdir media; fi"
   },
   "author": "AnthonyLzq <sluzquinosa@uni.pe>",
   "license": "MIT",
@@ -59,15 +61,6 @@
   "directories": {
     "test": "test"
   },
-  "dependencies": {
-    "eslint-import-resolver-node": "^0.3.6",
-    "eslint-module-utils": "^2.7.4",
-    "eslint-plugin-es": "^4.1.0",
-    "eslint-scope": "^7.1.1",
-    "eslint-utils": "^3.0.0",
-    "prettier-linter-helpers": "^1.0.0",
-    "eslint-visitor-keys": "^3.3.0"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/AnthonyLzq/DoorCloud-IoTClient.git"
@@ -79,5 +72,8 @@
   "bugs": {
     "url": "https://github.com/AnthonyLzq/DoorCloud-IoTClient/issues"
   },
-  "homepage": "https://github.com/AnthonyLzq/DoorCloud-IoTClient#readme"
+  "homepage": "https://github.com/AnthonyLzq/DoorCloud-IoTClient#readme",
+  "dependencies": {
+    "@anthonylzq/node-webcam": "2.0.2"
+  }
 }
