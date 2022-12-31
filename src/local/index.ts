@@ -1,1 +1,2 @@
-export * from './camera'
+export * from './takePicture'
+export * from './sendPicture'

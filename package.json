@@ -12,13 +12,15 @@
     "release": "standard-version",
     "test:local": "jest --setupFiles dotenv/config --ci -i --forceExit",
     "test:ci": "jest --ci -i",
-    "demo": "npm run prepare:demo && ts-node demo",
+    "demo": "npm run prepare:demo && DEBUG=DoorCloud:* ts-node demo/takePicture",
+    "demo:mqtt": "npm run prepare:demo && DEBUG=DoorCloud:* ts-node -r dotenv/config demo/sendPicture",
     "prepare:demo": "if [ ! -d \"media\" ]; then mkdir media; fi"
   },
   "author": "AnthonyLzq <sluzquinosa@uni.pe>",
   "license": "MIT",
   "devDependencies": {
     "@jest/types": "^29.3.1",
+    "@types/debug": "^4.1.7",
     "@types/jest": "^29.2.5",
     "@types/node": "^18.11.18",
     "@typescript-eslint/eslint-plugin": "^5.47.1",
@@ -75,6 +77,8 @@
   },
   "homepage": "https://github.com/AnthonyLzq/DoorCloud-IoTClient#readme",
   "dependencies": {
-    "@anthonylzq/node-webcam": "2.0.2"
+    "@anthonylzq/node-webcam": "2.0.2",
+    "debug": "^4.3.4",
+    "mqtt": "^4.3.7"
   }
 }
