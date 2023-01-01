@@ -1,8 +1,8 @@
-import { capture } from '@anthonylzq/node-webcam'
+import { capture, NodeWebcamConfig } from '@anthonylzq/node-webcam'
 import { resolve } from 'path'
 import { getTimestamp } from 'utils'
 
-const takePicture = async () => {
+const takePicture = async (format: NodeWebcamConfig['output']) => {
   const timestamp = getTimestamp()
 
   return await capture({
@@ -11,12 +11,12 @@ const takePicture = async () => {
       '..',
       '..',
       'media',
-      `photo_test_${timestamp}.png`
+      `photo_test_${timestamp}.${format}`
     ),
     options: {
-      output: 'png'
+      output: format
     },
-    returnType: 'buffer'
+    returnType: 'base64'
   })
 }
 
