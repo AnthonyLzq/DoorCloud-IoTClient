@@ -1,3 +1,3 @@
 import { takePicture } from '../src'
 
-takePicture()
+takePicture('jpg')
