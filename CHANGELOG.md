@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.4.1 (2023-01-02)
+
+
+### Features
+
+* added capability to take pictures using the webcam ([c970713](https://github.com/AnthonyLzq/DoorCloud-IoTClient/commit/c970713ebed549cc9287e2a0a1baa9e9d87236dc))
+* implemented capability to send the photo using the mqtt protocol ([1f26744](https://github.com/AnthonyLzq/DoorCloud-IoTClient/commit/1f26744b86627518641722918d3f54eef67d8a66))
+* implemented dynamic format in the takePicture function ([01bd8c4](https://github.com/AnthonyLzq/DoorCloud-IoTClient/commit/01bd8c47dc3cf5630dcaf82f0326332437d4f348))
+* initial project config ([530759a](https://github.com/AnthonyLzq/DoorCloud-IoTClient/commit/530759a85f76ed119e6081a02081ef20c727f696))
+* restored media folder ([cafdf64](https://github.com/AnthonyLzq/DoorCloud-IoTClient/commit/cafdf64edca6450d81d569c9f7ca7466572f8d8e))
+* updated packages ([8cd66fc](https://github.com/AnthonyLzq/DoorCloud-IoTClient/commit/8cd66fc5f29fc119e526d7db1448006da9e33d7d))
+* updated packages ([ec0e0dc](https://github.com/AnthonyLzq/DoorCloud-IoTClient/commit/ec0e0dccd7c7e2b7103067548fb9d006d06e067f))
+
+
+### Bug Fixes
+
+* broken changelog ([a984e47](https://github.com/AnthonyLzq/DoorCloud-IoTClient/commit/a984e4712f05e8692c3cdd180a2b4972e5172f6c))
+
 ## [0.4.0](https://github.com/AnthonyLzq/DoorCloud-IoTClient/compare/v0.2.0...v0.4.0) (2023-01-02)
 
 
