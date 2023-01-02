@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.4.0](https://github.com/AnthonyLzq/DoorCloud-IoTClient/compare/v0.2.0...v0.4.0) (2023-01-02)
+
+
+### Features
+
+* implemented dynamic format in the takePicture function ([d59983b](https://github.com/AnthonyLzq/DoorCloud-IoTClient/commit/d59983b231a856dc9f1b56e795afc311631c7152))
+* restored media folder ([fa37fdb](https://github.com/AnthonyLzq/DoorCloud-IoTClient/commit/fa37fdbd4bb6ea360031ed24b728650c65190b3a))
+* updated packages ([7c147bd](https://github.com/AnthonyLzq/DoorCloud-IoTClient/commit/7c147bd27dbf45989cdcb39ee0410cf8575c9060))
+
 ## [0.3.0](https://github.com/AnthonyLzq/DoorCloud-IoTClient/compare/v0.2.0...v0.3.0) (2023-01-01)
 
 
