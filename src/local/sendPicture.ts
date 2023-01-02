@@ -7,7 +7,7 @@ const pubDebug = debug('DoorCloud:Mqtt:demo:pub')
 const client = getClient()
 
 const sendPicture = async () => {
-  const format = 'jpg'
+  const format = 'png'
 
   client.on('error', (error: Error) => {
     pubDebug('Error: ', error)
