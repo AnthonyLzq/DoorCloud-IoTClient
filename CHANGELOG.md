@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.4.1 (2023-01-02)
+
+### Bug Fixes
+
+* broken changelog ([a984e47](https://github.com/AnthonyLzq/DoorCloud-IoTClient/commit/a984e4712f05e8692c3cdd180a2b4972e5172f6c))
+
 ## [0.4.0](https://github.com/AnthonyLzq/DoorCloud-IoTClient/compare/v0.2.0...v0.4.0) (2023-01-02)
 
 
