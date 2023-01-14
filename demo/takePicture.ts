@@ -1,3 +1,3 @@
 import { takePicture } from '../src'
 
-takePicture('jpg')
+takePicture('jpg').then(() => process.exit(0))
