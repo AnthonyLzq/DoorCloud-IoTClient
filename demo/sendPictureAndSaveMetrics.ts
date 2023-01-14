@@ -2,9 +2,10 @@ import { writeFileSync } from 'fs'
 import { resolve } from 'path'
 import debug from 'debug'
 
-import { takePictureAndReturnMetrics } from '../src'
+import { sendPictureAndReturnMetrics } from '../src'
+import { mqttConnection } from '../src/mqtt/server'
 
-const namespace = 'DoorCloud:Demo:takePictureAndSaveMetrics'
+const namespace = 'DoorCloud:Demo:SendPictureAndSaveMetrics'
 const log = debug(namespace)
 
 const main = async () => {
@@ -14,23 +15,31 @@ const main = async () => {
     : 1000
   const results: (string | number)[][] = [['timeAt', 'seconds']]
   let average = 0
+  const connection = mqttConnection()
+  const client = await connection.start()
+  const cb = (error: Error | null, seconds: number) => {
+    if (error) log('error', error)
+
+    results.push([new Date().toISOString(), seconds])
+    average += seconds
+  }
 
   log(`Taking photos ${iterations}...`)
 
   for (let i = 0; i < iterations; i++) {
-    const seconds = await takePictureAndReturnMetrics('jpg')
-
-    average += seconds
-    results.push([new Date().toISOString(), seconds])
+    await sendPictureAndReturnMetrics(client, cb)
     log(`Photo: ${i + 1}`)
   }
 
-  average = parseFloat((average / iterations).toFixed(3))
+  connection.stop()
   writeFileSync(
-    resolve(__dirname, 'metrics', 'takingPhoto.csv'),
+    resolve(__dirname, 'metrics', 'sendingPhoto.csv'),
     results.join('\n'),
     'utf-8'
   )
+
+  average = parseFloat((average / iterations).toFixed(3))
+
   log(`Done! Average time: ${average} seconds`)
   process.exit(0)
 }

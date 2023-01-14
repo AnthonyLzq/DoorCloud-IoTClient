@@ -32,7 +32,7 @@ const getClient = () => {
 
 const mqttConnection = () => ({
   start: async () => {
-    return global.__mqttClient__
+    return getClient()
   },
   stop: async () => {
     getClient().end()

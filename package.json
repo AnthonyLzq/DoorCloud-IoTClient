@@ -15,6 +15,7 @@
     "demo": "npm run prepare:demo && DEBUG=DoorCloud:* ts-node demo/takePicture",
     "demo:mqtt": "npm run prepare:demo && DEBUG=DoorCloud:* ts-node -r dotenv/config demo/sendPicture",
     "demo:metrics": "npm run prepare:demo && DEBUG=DoorCloud:* ts-node -r dotenv/config demo/takePictureAndSaveMetrics",
+    "demo:mqtt:metrics": "npm run prepare:demo && DEBUG=DoorCloud:* ts-node -r dotenv/config demo/sendPictureAndSaveMetrics",
     "prepare:demo": "if [ ! -d \"media\" ]; then mkdir media; fi"
   },
   "author": "AnthonyLzq <sluzquinosa@uni.pe>",

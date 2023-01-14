@@ -1,25 +1,44 @@
 import debug from 'debug'
+import { MqttClient } from 'mqtt'
 
 import { takePicture } from './takePicture'
-import { getClient } from '../mqtt/server'
+import { getTimestamp } from 'utils'
 
-const sendPicture = async () => {
+const sendPicture = async (client: MqttClient, cb: () => void) => {
   const format = 'jpeg'
-  const pubDebug = debug('DoorCloud:Mqtt:demo:pub')
-  const client = getClient()
-
-  client.on('error', (error: Error) => {
-    pubDebug('Error: ', error)
-  })
+  const pubDebug = debug('DoorCloud:Demo:sendPicture')
 
   client.publish(
     'DoorCloud/photo',
     `7----${format}----${await takePicture(format)}`,
     () => {
       pubDebug('Message send')
-      process.exit(0)
+      cb()
     }
   )
 }
 
-export { sendPicture }
+const sendPictureAndReturnMetrics = async (
+  client: MqttClient,
+  cb: (error: Error | null, seconds: number) => void
+) => {
+  const format = 'jpeg'
+  const pubDebug = debug('DoorCloud:Demo:sendPictureAndReturnMetrics')
+  const timestampBefore = getTimestamp()
+
+  client.publish(
+    'DoorCloud/photo',
+    `7----${format}----${await takePicture(format)}`,
+    () => {
+      const timestampAfter = getTimestamp()
+
+      pubDebug('Message send')
+      cb(
+        null,
+        parseFloat(((timestampAfter - timestampBefore) / 1000).toFixed(3))
+      )
+    }
+  )
+}
+
+export { sendPicture, sendPictureAndReturnMetrics }

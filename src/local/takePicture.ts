@@ -26,6 +26,37 @@ const takePicture = async (
   })
 }
 
+const takePictureAndDeleteIt = async (
+  format: NodeWebcamConfig['output'],
+  cb?: (value?: string | Buffer | undefined) => void
+): Promise<string | Buffer> => {
+  const timestamp = getTimestamp()
+  const location = resolve(
+    __dirname,
+    '..',
+    '..',
+    'media',
+    `photo_test_${timestamp}.${format}`
+  )
+  const picture = await capture({
+    location: resolve(
+      __dirname,
+      '..',
+      '..',
+      'media',
+      `photo_test_${timestamp}.${format}`
+    ),
+    options: {
+      output: format
+    },
+    returnType: 'base64',
+    cb
+  })
+  unlinkSync(location)
+
+  return picture
+}
+
 const takePictureAndReturnMetrics = async (
   format: NodeWebcamConfig['output'],
   cb?: (value?: string | Buffer | undefined) => void
@@ -55,4 +86,4 @@ const takePictureAndReturnMetrics = async (
   return parseFloat(((timestampAfter - timestampBefore) / 1000).toFixed(3))
 }
 
-export { takePicture, takePictureAndReturnMetrics }
+export { takePicture, takePictureAndDeleteIt, takePictureAndReturnMetrics }
