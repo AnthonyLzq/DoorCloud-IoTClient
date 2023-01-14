@@ -14,6 +14,7 @@
     "test:ci": "jest --ci -i",
     "demo": "npm run prepare:demo && DEBUG=DoorCloud:* ts-node demo/takePicture",
     "demo:mqtt": "npm run prepare:demo && DEBUG=DoorCloud:* ts-node -r dotenv/config demo/sendPicture",
+    "demo:metrics": "npm run prepare:demo && DEBUG=DoorCloud:* ts-node -r dotenv/config demo/takePictureAndSaveMetrics",
     "prepare:demo": "if [ ! -d \"media\" ]; then mkdir media; fi"
   },
   "author": "AnthonyLzq <sluzquinosa@uni.pe>",

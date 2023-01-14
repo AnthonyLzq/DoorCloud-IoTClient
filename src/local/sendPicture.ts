@@ -3,11 +3,10 @@ import debug from 'debug'
 import { takePicture } from './takePicture'
 import { getClient } from '../mqtt/server'
 
-const pubDebug = debug('DoorCloud:Mqtt:demo:pub')
-const client = getClient()
-
 const sendPicture = async () => {
   const format = 'jpeg'
+  const pubDebug = debug('DoorCloud:Mqtt:demo:pub')
+  const client = getClient()
 
   client.on('error', (error: Error) => {
     pubDebug('Error: ', error)
