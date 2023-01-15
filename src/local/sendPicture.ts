@@ -1,7 +1,7 @@
 import debug from 'debug'
 import { MqttClient } from 'mqtt'
 
-import { takePicture } from './takePicture'
+import { takePicture, takePictureAndDeleteIt } from './takePicture'
 import { getTimestamp } from 'utils'
 
 const sendPicture = async (client: MqttClient, cb: () => void) => {
@@ -28,7 +28,7 @@ const sendPictureAndReturnMetrics = async (
 
   client.publish(
     'DoorCloud/photo',
-    `7----${format}----${await takePicture(format)}`,
+    `7----${format}----${await takePictureAndDeleteIt(format)}`,
     () => {
       const timestampAfter = getTimestamp()
 

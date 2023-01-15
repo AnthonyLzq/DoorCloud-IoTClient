@@ -3,6 +3,7 @@ import { resolve } from 'path'
 import debug from 'debug'
 
 import { sendPictureAndReturnMetrics } from '../src'
+import { randomWait } from '../src/utils'
 import { mqttConnection } from '../src/mqtt/server'
 
 const namespace = 'DoorCloud:Demo:SendPictureAndSaveMetrics'
@@ -31,6 +32,7 @@ const main = async () => {
     log(`Photo: ${i + 1}`)
   }
 
+  await randomWait(3_000, 5_000)
   connection.stop()
   writeFileSync(
     resolve(__dirname, 'metrics', 'sendingPhoto.csv'),
