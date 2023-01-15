@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.0.0](https://github.com/AnthonyLzq/DoorCloud-IoTClient/compare/v0.5.0...v1.0.0) (2023-01-15)
+
+
+### Features
+
+* improved process to send the picture ([35c8be4](https://github.com/AnthonyLzq/DoorCloud-IoTClient/commit/35c8be41af37deedf307fd243d6d2f6ec6a95a03))
+
+
+### Bug Fixes
+
+* sendPicture functions to publish messages ([2b39ba8](https://github.com/AnthonyLzq/DoorCloud-IoTClient/commit/2b39ba816595ccc4864fd7da569f40661345297d))
+
 ## 0.5.0 (2023-01-15)
 
 
