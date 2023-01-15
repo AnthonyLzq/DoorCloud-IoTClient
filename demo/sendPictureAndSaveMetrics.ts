@@ -29,6 +29,7 @@ const main = async () => {
 
   for (let i = 0; i < iterations; i++) {
     await sendPictureAndReturnMetrics(client, cb)
+    await randomWait()
     log(`Photo: ${i + 1}`)
   }
 

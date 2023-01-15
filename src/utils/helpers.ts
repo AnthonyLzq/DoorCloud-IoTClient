@@ -1,9 +1,15 @@
-const getTimestamp = () => new Date().getTime()
+const getTimestamp = (): number => new Date().getTime()
 
-const randomWait = async (min = 1000, max = 2000) => {
+const randomWait = async (min = 1000, max = 2000): Promise<void> => {
   await new Promise(resolve => {
     setTimeout(resolve, Math.floor(Math.random() * (max - min) + min))
   })
 }
 
-export { getTimestamp, randomWait }
+const diffTimeInSeconds = (time1: number, time2: number) => {
+  const diff = Math.abs(time1 - time2)
+
+  return parseFloat((diff / 1000).toFixed(3))
+}
+
+export { getTimestamp, randomWait, diffTimeInSeconds }
