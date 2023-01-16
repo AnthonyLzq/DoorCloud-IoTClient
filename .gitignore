@@ -129,3 +129,4 @@ dist
 
 test/setEnvVars.ts
 media/photo*
+venv
